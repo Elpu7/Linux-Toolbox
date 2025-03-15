@@ -9,7 +9,6 @@ sudo bash -c "$(wget -qO- https://raw.githubusercontent.com/Elpu7/linux-toolbox/
 ```
 
 ## Execution:    
-Run the following command to execute
 ```bash
 toolbox
 ```   
