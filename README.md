@@ -1,20 +1,31 @@
+# Linux-Toolbox
+
 Linux-toolbox provides easy and simple tools for Linux   
 
-**Installation:**   
+## Installion:
+Run the following command to install:
+```bash
+sudo bash -c "$(wget -qO- https://raw.githubusercontent.com/Elpu7/linux-toolbox/main/install-toolbox.sh)"
+```
 
-```sudo bash -c "$(wget -qO- https://raw.githubusercontent.com/Elpu7/linux-toolbox/main/install-toolbox.sh)"```   
+## Execution:    
+Run the following command to execute
+```bash
+toolbox
+```   
 
-**Execution:**   
-   
-```toolbox```   
 
-**Update:**
+## Update:
 
-```sudo toolbox update```
+```bash
+sudo toolbox update
+```
 
-**Remove:**   
-   
-```sudo toolbox remove```   
+## Remove:  
+
+```bash
+sudo toolbox remove
+```   
 
    
 --------------------------------------------------------------------   
