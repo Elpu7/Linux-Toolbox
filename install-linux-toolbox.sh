@@ -1,6 +1,6 @@
 #!/bin/bash
 
-REPO_URL="https://github.com/Elpu7/linux-toolbox.git"  # Replace with your repository URL
+REPO_URL="https://github.com/Elpu7/linux-toolbox.git"
 INSTALL_DIR="/opt/linux-toolbox"
 BIN_PATH="/usr/local/bin/toolbox"
 
@@ -27,3 +27,6 @@ chmod +x "$INSTALL_DIR/toolbox.sh"
 ln -sf "$INSTALL_DIR/toolbox.sh" "$BIN_PATH"
 
 echo "Installation complete. You can now use the toolbox command."
+
+# Run the toolbox script
+exec "$BIN_PATH"
