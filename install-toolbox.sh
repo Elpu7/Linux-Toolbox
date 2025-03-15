@@ -25,8 +25,18 @@ install_toolbox() {
     # Set execution permissions
     chmod +x "$INSTALL_DIR/toolbox.sh"
 
-    # Create a symlink for easy access
-    ln -sf "$INSTALL_DIR/toolbox.sh" "$BIN_PATH"
+    # Create a wrapper script to handle toolbox execution
+    echo '#!/bin/bash' > "$BIN_PATH"
+    echo 'if [[ "$1" == "update" ]]; then' >> "$BIN_PATH"
+    echo '    sudo bash /opt/linux-toolbox/install-toolbox.sh' >> "$BIN_PATH"
+    echo 'elif [[ "$1" == "remove" ]]; then' >> "$BIN_PATH"
+    echo '    sudo rm -rf /opt/linux-toolbox /usr/local/bin/toolbox' >> "$BIN_PATH"
+    echo '    echo "Linux-Toolbox has been removed."' >> "$BIN_PATH"
+    echo 'else' >> "$BIN_PATH"
+    echo '    bash /opt/linux-toolbox/toolbox.sh "$@"' >> "$BIN_PATH"
+    echo 'fi' >> "$BIN_PATH"
+
+    chmod +x "$BIN_PATH"
 
     echo "Installation complete. Use 'toolbox' command to run."
 }
@@ -48,5 +58,5 @@ elif [[ "$1" == "remove" ]]; then
     exit 0
 fi
 
-# If no arguments, install by default
+# Default to install
 install_toolbox
