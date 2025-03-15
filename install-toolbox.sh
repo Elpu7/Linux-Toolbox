@@ -40,15 +40,13 @@ remove_toolbox() {
 }
 
 # Handle command arguments
-case "$1" in
-    update)
-        install_toolbox
-        ;;
-    remove)
-        remove_toolbox
-        ;;
-    *)
-        install_toolbox
-        exec "$BIN_PATH"
-        ;;
-esac
+if [[ "$1" == "update" ]]; then
+    install_toolbox
+    exit 0
+elif [[ "$1" == "remove" ]]; then
+    remove_toolbox
+    exit 0
+fi
+
+# If no arguments, install by default
+install_toolbox
