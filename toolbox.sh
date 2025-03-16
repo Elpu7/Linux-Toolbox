@@ -68,7 +68,8 @@ while true; do
                     echo "3) List Rules"
                     echo "4) Allow Port (e.g., 22)"
                     echo "5) Deny Port (e.g., 22)"
-                    echo "6) Back to Main Menu"
+                    echo "6) Remove Port Rule (e.g., 22)"
+                    echo "7) Back to Main Menu"
                     echo -n "Choose an option: "
                     read fw_choice
 
@@ -86,7 +87,13 @@ while true; do
                             sudo ufw deny "$port"
                             read -p "Port $port denied. Press enter to continue..."
                             ;;
-                        6) break ;;
+                        6) 
+                            sudo ufw status numbered
+                            echo -n "Enter rule number to delete: "; read rule_num
+                            sudo ufw delete "$rule_num"
+                            read -p "Rule $rule_num removed. Press enter to continue..."
+                            ;;
+                        7) break ;;
                         *) echo -e "${RED}Invalid option! Try again.${NC}"; sleep 1 ;;
                     esac
                 else
